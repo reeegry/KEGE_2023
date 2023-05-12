@@ -6,7 +6,7 @@ def game(stones, step, final_step):
     if stones >= (количество камней для победы): return step % 2 == final_step % 2
     if step == final_step: return 0
 
-    heaps = [game(stones + (условие 1)), game(stone * (условие 2)), (следующие услоия)]
+    heaps = [game(stones + (условие 1), step + 1, final_step), game(stone * (условие 2), step + 1, final_step), (следующие условия)]
     '''
     если следующий ход это ход игрок за которого мы ищем победу, то нам нужен ХОТЯ БЫ один выигрышный ход, иначе во всех ходах
     противника нужна победа(потому что у него нет стратегии)
@@ -18,3 +18,4 @@ for s in range(количество камней):
     for step in range(1, 5):
         if game(s, 0, step):
             print(s, step)
+            break
